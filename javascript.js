@@ -6,6 +6,8 @@
 ya que senti que para la segunda entrega iba a tener mas recursos para hacer un carrito mas completo, ademas me parecio algo 
 mas desafiante y divertido con los recursos aprendidos hasta ahora */
 
+
+// Introduccion
 alert("Bienvenido al juego Adivia Adivinador");
 alert("Deberas adivinar el numero que estoy pensando, se encuentra entre el 1 y el 10. Y recuerda, solo tienes 3 oportunidades");
 
@@ -19,6 +21,9 @@ const randomNumber = randomIntPcChoice(1,10);
 // Establecemos la variable INTENTOS, la cual se ira incrementando
 let intentos = 0
 
+// Imprimo randomNumber para que puedas probar rapidamente las posibles opciones de juego (ganar en la primera, errar todas, etc)
+console.log(randomNumber);
+
 // Definimos la funcion correrJuego la cual correra mientras los intentos no sean mayor a 3 y establecera Cuando se gana y avisara cada vez que el usuario se equivoque.
 function correrJuego () {
     while (intentos < 3){
@@ -30,8 +35,13 @@ function correrJuego () {
             break;
         }
 
+        if (intentos > 3){
+            alert("Se te acabaron los intentos, el numero a adivinar era " + randomNumber + " lo siento pero perdiste!");
+        }
+
         // Este IF evitara que una vez realizado el ultimo intento corra el IF que se encuentra debajo de este
         if (intentos == 3){
+            alert("Se te acabaron los intentos, el numero a adivinar era " + randomNumber + " lo siento pero perdiste!");
             break;
         }
 
@@ -45,13 +55,7 @@ function correrJuego () {
 correrJuego();
 
 
-// Debemos agregar un sumador tambien fuera de la funcion ya que si no, INTENTOS solo sumara en un scope local de la funcion y nunca se cumplira el IF por debajo.
 
-intentos = (intentos + 1);
-
-if (intentos > 3){
-    alert("Se te acabaron los intentos, el numero a adivinar era " + randomNumber + " lo siento pero perdiste!");
-}
 
 
 
